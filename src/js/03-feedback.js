@@ -6,14 +6,6 @@ myForm.addEventListener("input", handleInput);
 myForm.addEventListener("submit", handleSubmit);
 
 
-// window.addEventListener(
-//   "storage",
-//   throttle(() => {
-//     console.log("Storage limiter works");
-//   }, 500)
-// );
-
-
 if (localStorage.getItem("feedback-form-state")) {
     const { email, message } = JSON.parse(localStorage.getItem("feedback-form-state"));
     myForm.email.value = email;
@@ -21,7 +13,8 @@ if (localStorage.getItem("feedback-form-state")) {
 }
 
 function handleInput(event) {
-    localStorage.setItem("feedback-form-state", JSON.stringify(generateFeedback(event)));
+    
+localStorage.setItem("feedback-form-state", JSON.stringify(generateFeedback(event)));
 }
 
 function handleSubmit(event) {
