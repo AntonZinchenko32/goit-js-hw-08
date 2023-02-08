@@ -3,7 +3,7 @@ var throttle = require('lodash.throttle');
 const myForm = document.querySelector(".feedback-form");
 const feedback = { email: "", message: "" };
 
-// console.log(" Hello Olena");
+console.log(" Hello Olena");
 
 myForm.addEventListener("input", throttle(handleInput, 500));
 myForm.addEventListener("submit", handleSubmit);
