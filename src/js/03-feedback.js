@@ -1,4 +1,4 @@
-var throttle = require('lodash.throttle');
+// var throttle = require('lodash.throttle');
 
 const myForm = document.querySelector(".feedback-form");
 
@@ -26,11 +26,9 @@ function handleSubmit(event) {
 }
 
 function generateFeedback(event) {
-    const { elements: { email, message } } = event.currentTarget;
+    const feedback = { email: "", message: "" };
+    
+    feedback.event.target.name = event.target.value;
 
-    const feedback = {
-        email: email.value.trim(),
-        message: message.value.trim()
-    }
     return feedback;
 }
