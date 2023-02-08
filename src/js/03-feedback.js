@@ -33,7 +33,7 @@ function handleSubmit(event) {
     feedback.email = "";
     feedback.message = "";
     event.currentTarget.reset();
-    localStorage.clear();
+    localStorage.removeItem("feedback-form-state");
 }
 
 
