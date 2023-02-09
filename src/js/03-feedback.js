@@ -4,10 +4,9 @@ const myForm = document.querySelector(".feedback-form");
 let feedback = { email: "", message: "" };
 const getItem = localStorage.getItem("feedback-form-state");
 
-
-console.log("test1234");
-
 bringSavedInput(getItem);
+
+console.log("Test")
 
 myForm.addEventListener("input", throttle(handleInput, 500));
 myForm.addEventListener("submit", handleSubmit);
@@ -23,7 +22,6 @@ function bringSavedInput (item) {
 }
 
 function handleInput(event) {
-
     const trimmedValue = event.target.value.trim();
     
     feedback[event.target.name] = trimmedValue;
