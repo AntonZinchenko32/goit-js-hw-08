@@ -6,16 +6,20 @@ const getItem = localStorage.getItem("feedback-form-state");
 
 bringSavedInput(getItem);
 
-console.log("Test")
-
 myForm.addEventListener("input", throttle(handleInput, 500));
 myForm.addEventListener("submit", handleSubmit);
 
 function bringSavedInput (item) {
     if (item === null) return;
     
-    feedback = JSON.parse(getItem);
-    
+    try {
+        feedback = JSON.parse(getItem);
+    }
+    catch (error) {
+        console.log(error.name);
+        console.log(error.message); 
+    }
+
     for (const key in feedback) {
         myForm[key].value = feedback[key];
     }
