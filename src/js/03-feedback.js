@@ -19,7 +19,6 @@ function bringSavedInput (item) {
     
     for (const key in feedback) {
         myForm[key].value = feedback[key];
-        console.log(myForm[key].value);
     }
 }
 
@@ -27,11 +26,9 @@ function handleInput(event) {
 
     const trimmedValue = event.target.value.trim();
     
-    event.target.name === "email"
-        ? feedback.email = trimmedValue
-        : feedback.message = trimmedValue
+    feedback[event.target.name] = trimmedValue;
     
-localStorage.setItem("feedback-form-state", JSON.stringify(feedback));
+    localStorage.setItem("feedback-form-state", JSON.stringify(feedback));
 }
 
 function handleSubmit(event) {
